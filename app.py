@@ -5,7 +5,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-model = pickle.load(open('decision_tree_model.pkl', 'rb'))
+model = pickle.load(open('random_forest_model.pkl', 'rb'))
 mmx = pickle.load(open('minmax.pkl', 'rb'))
 
 
