@@ -6,7 +6,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 model = pickle.load(open('random_forest_model.pkl', 'rb'))
-#mmx = pickle.load(open('minmax.pkl', 'rb'))
 
 
 def preprocess_input(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
@@ -45,8 +44,12 @@ def main():
                                   total_proteins, albumin, albumin_and_globulin_ratio)
 
         prediction = predict(values)
+        if prediction[0]==1.0:
+          liver = "You have Liver Disease."
+        else:
+          liver = "You don't have Liver Disease."
 
-        st.success(f"The prediction is: {prediction[0]}")
+        st.success(liver)
 
 
 if __name__ == '__main__':
