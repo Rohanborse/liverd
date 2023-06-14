@@ -15,7 +15,7 @@ def preprocess_input(age, gender, total_bilirubin, direct_bilirubin, alkaline_ph
     # Perform any preprocessing steps here
     data = [[age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
              alamine_aminotransferase, aspartate_aminotransferase, total_proteins, albumin,
-             albumin_and_globulin_ratio]]
+             albumin_and_globulin_ratio, 1]]  # Add a value for the 'Dataset' feature
     values = mmx.transform(data)
     return values
 
@@ -40,7 +40,8 @@ def main():
     albumin_and_globulin_ratio = st.number_input("Albumin and Globulin Ratio", min_value=0.0, step=0.1)
 
     if st.button("Predict"):
-        values = preprocess_input(age, 1 if gender == "Male" else 0, total_bilirubin, direct_bilirubin,
+        gender_code = 1 if gender == "Male" else 0
+        values = preprocess_input(age, gender_code, total_bilirubin, direct_bilirubin,
                                   alkaline_phosphotase, alamine_aminotransferase, aspartate_aminotransferase,
                                   total_proteins, albumin, albumin_and_globulin_ratio)
 
