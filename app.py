@@ -1,3 +1,7 @@
+"""
+@author: Rohan Borse & Vikas Prajapati (#Arjun)
+"""
+
 import streamlit as st
 import pickle
 import pandas as pd
@@ -26,11 +30,6 @@ def predict(values):
 
 def main():
     st.title("Liver Disease Prediction")
-    st.title("By - Rohan Borse, Vikas Prajapati (#Arjun)")
-    html_temp = """
-    <h3 style="color:red; text-align:right;">Rohan Borse & Vikas Prajapati</h3>
-    """
-    st.markdown(html_temp, unsage_allow_html=True)
 
     age = st.number_input("Age", min_value=0, step=1)
     gender = st.radio("Gender", ['Male', 'Female'])
