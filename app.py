@@ -29,7 +29,6 @@ def predict(values):
 
 
 def main():
-    st.markdown("<body bgcolor=skyblue>", unsafe_allow_html=True)
     html_title = """
     <h1 style="color:red;"><b><u>LIVER DISEASE PREDICTION</u></b></h1>
     """
@@ -57,9 +56,9 @@ def main():
 
         prediction = predict(values)
         if prediction[0]==1.0:
-          liver = "You have Liver Disease."
+          liver = "You have Liver Disease. 😟"
         else:
-          liver = "You don't have Liver Disease."
+          liver = "You don't have Liver Disease. 😃"
 
         st.success(liver)
 
