@@ -29,7 +29,11 @@ def predict(values):
 
 
 def main():
-    st.title("""<style="color:red;">Liver Disease Prediction</style>""")
+    st.title("Liver Disease Prediction")
+    html_temp = """
+    <h3>Rohan Borse & Vikas Prajapati</h3>
+    """
+    st.markdown(html_temp, unsafe_allow_html=True)
 
     age = st.number_input("Age", min_value=0, step=1)
     gender = st.radio("Gender", ['Male', 'Female'])
