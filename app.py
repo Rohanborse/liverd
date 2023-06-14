@@ -35,7 +35,7 @@ def main():
     """
     st.markdown(html_title, unsafe_allow_html=True)
     html_temp = """
-    <h2 style="color:white;"><em>Rohan Borse & Vikas Prajapati</em></h2>
+    <h2 style="color:aqua;"><em>Rohan Borse & Vikas Prajapati</em></h2>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
 
