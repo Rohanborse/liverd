@@ -1,0 +1,53 @@
+import streamlit as st
+import pickle
+import pandas as pd
+import warnings
+
+warnings.filterwarnings('ignore')
+
+model = pickle.load(open('decision_tree_model.pkl', 'rb'))
+v1 = pickle.load(open('minmax.pkl', 'rb'))
+
+
+def preprocess_input(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
+                     alamine_aminotransferase, aspartate_aminotransferase, total_proteins, albumin,
+                     albumin_and_globulin_ratio):
+    # Perform any preprocessing steps here
+    data = [[age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
+             alamine_aminotransferase, aspartate_aminotransferase, total_proteins, albumin,
+             albumin_and_globulin_ratio]]
+    values = v1.transform(data)
+    return values
+
+
+def predict(values):
+    prediction = model.predict(values)
+    return prediction
+
+
+def main():
+    st.title("Liver Disease Prediction")
+
+    age = st.number_input("Age", min_value=0, max_value=150, step=1)
+    gender = st.radio("Gender", ['Male', 'Female'])
+    total_bilirubin = st.number_input("Total Bilirubin", min_value=0.0, max_value=100.0, step=0.1)
+    direct_bilirubin = st.number_input("Direct Bilirubin", min_value=0.0, max_value=100.0, step=0.1)
+    alkaline_phosphotase = st.number_input("Alkaline Phosphotase", min_value=0, max_value=2000, step=1)
+    alamine_aminotransferase = st.number_input("Alamine Aminotransferase", min_value=0, max_value=2000, step=1)
+    aspartate_aminotransferase = st.number_input("Aspartate Aminotransferase", min_value=0, max_value=2000, step=1)
+    total_proteins = st.number_input("Total Proteins", min_value=0.0, max_value=10.0, step=0.1)
+    albumin = st.number_input("Albumin", min_value=0.0, max_value=10.0, step=0.1)
+    albumin_and_globulin_ratio = st.number_input("Albumin and Globulin Ratio", min_value=0.0, max_value=10.0, step=0.1)
+
+    if st.button("Predict"):
+        values = preprocess_input(age, 1 if gender == "Male" else 0, total_bilirubin, direct_bilirubin,
+                                  alkaline_phosphotase, alamine_aminotransferase, aspartate_aminotransferase,
+                                  total_proteins, albumin, albumin_and_globulin_ratio)
+
+        prediction = predict(values)
+
+        st.success(f"The prediction is: {prediction[0]}")
+
+
+if __name__ == '__main__':
+    main()
