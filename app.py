@@ -26,6 +26,7 @@ def predict(values):
 
 def main():
     st.title("Liver Disease Prediction")
+    st.title("<h3>By - Rohan Borse, Vikas Prajapati (#Arjun)</h3>")
 
     age = st.number_input("Age", min_value=0, step=1)
     gender = st.radio("Gender", ['Male', 'Female'])
