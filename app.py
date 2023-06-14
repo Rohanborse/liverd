@@ -29,7 +29,11 @@ def predict(values):
 
 
 def main():
-    st.title("Liver Disease Prediction")
+#     st.title("Liver Disease Prediction")
+    html_title = """
+    <h1 style="color:red;"><b><u>LIVER DISEASE PREDICTION</u></b></h1>
+    """
+    st.markdown(html_title, unsafe_allow_html=True)
     html_temp = """
     <h3>Rohan Borse & Vikas Prajapati</h3>
     """
