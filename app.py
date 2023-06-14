@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 model = pickle.load(open('random_forest_model.pkl', 'rb'))
-mmx = pickle.load(open('minmax.pkl', 'rb'))
+#mmx = pickle.load(open('minmax.pkl', 'rb'))
 
 
 def preprocess_input(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
@@ -16,7 +16,7 @@ def preprocess_input(age, gender, total_bilirubin, direct_bilirubin, alkaline_ph
     data = [[age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
              alamine_aminotransferase, aspartate_aminotransferase, total_proteins, albumin,
              albumin_and_globulin_ratio]]
-    values = mmx.transform(data)
+    values = data
     return values
 
 
