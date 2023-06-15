@@ -33,10 +33,11 @@ def main():
     <h1 style="color:red;"><b><u>LIVER DISEASE PREDICTION</u></b></h1>
     """
     st.markdown(html_title, unsafe_allow_html=True)
-    html_temp = """
-    <h2 style="color:aqua;"><em>😎 Rohan Borse<br>😎 Vikas Prajapati</em></h2>
-    """
-    st.markdown(html_temp, unsafe_allow_html=True)
+  
+  
+   
+
+
 
     age = st.number_input("Age", min_value=0, step=1)
     gender = st.radio("Gender", ['Male', 'Female'])
