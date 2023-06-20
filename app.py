@@ -36,11 +36,9 @@ def main():
         background-image: url('https://as1.ftcdn.net/v2/jpg/04/40/94/86/1000_F_440948657_qUH8MHiLNIkhXnbv7TAc1M2A7rVwc9KT.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-repeat: no-repeat;
         background-size: 100% 100%;
     }
-    </style>
-    """, unsafe_allow_html = True
+    </style>""", unsafe_allow_html = True
     )
   
     html_title = """
