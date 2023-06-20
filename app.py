@@ -29,8 +29,9 @@ def predict(values):
 
 
 def main():
-    html_title = """
-    <style>
+    st.markdown(
+      """
+          <style>
     body {
         background-image: url('https://as1.ftcdn.net/v2/jpg/04/40/94/86/1000_F_440948657_qUH8MHiLNIkhXnbv7TAc1M2A7rVwc9KT.jpg');
         background-repeat: no-repeat;
@@ -39,6 +40,10 @@ def main():
         background-size: 100% 100%;
     }
     </style>
+    """, unsafe_allow_html = True
+    )
+  
+    html_title = """
     <h1 style="color:red;"><b><u>LIVER DISEASE PREDICTION</u></b></h1>
     """
   
